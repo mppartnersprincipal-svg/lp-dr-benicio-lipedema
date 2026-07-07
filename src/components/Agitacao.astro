@@ -1,0 +1,110 @@
+---
+import { AGITACAO } from '../config/content';
+
+const icons: Record<string, string> = {
+  pain: '<path d="M12 2a7 7 0 0 1 7 7c0 3-2 5-3.5 6.5L12 22l-3.5-6.5C7 14 5 12 5 9a7 7 0 0 1 7-7z"/><circle cx="12" cy="9" r="2.5"/>',
+  swelling: '<path d="M12 3c3.5 4.5 6 7.7 6 11a6 6 0 0 1-12 0c0-3.3 2.5-6.5 6-11z"/>',
+  mobility: '<circle cx="12" cy="5" r="2.2"/><path d="M9 22l1.5-6L8 13l2-4.5L14 10l3 2"/><path d="M10 8.5L12 13l3 3.5"/>',
+  progression: '<path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/>',
+};
+---
+
+<section class="section agitacao on-navy" id="consequencias" aria-labelledby="agitacao-title">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="kicker">{AGITACAO.kicker}</span>
+      <h2 id="agitacao-title" class="agitacao__title">{AGITACAO.title}</h2>
+    </div>
+
+    <ul class="agitacao__list" data-reveal-stagger>
+      {AGITACAO.consequences.map((item) => (
+        <li class="agitacao__item" data-reveal>
+          <span class="agitacao__icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" set:html={icons[item.icon]} />
+          </span>
+          <span class="agitacao__text">{item.text}</span>
+        </li>
+      ))}
+    </ul>
+
+    <div class="agitacao__closing" data-reveal>
+      <p>{AGITACAO.emotional}</p>
+      <p class="agitacao__strong">{AGITACAO.closing}</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .agitacao {
+    background: var(--navy-ink);
+  }
+
+  .agitacao__title {
+    color: var(--on-navy-strong);
+  }
+
+  .agitacao__list {
+    list-style: none;
+    margin: 0 0 44px;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .agitacao__item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--radius-lg);
+    padding: 22px 24px;
+  }
+
+  .agitacao__icon {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    background: rgba(183, 154, 91, 0.16);
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .agitacao__text {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--on-navy-link);
+    font-weight: var(--fw-body);
+    align-self: center;
+  }
+
+  .agitacao__closing {
+    max-width: 680px;
+  }
+
+  .agitacao__closing p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--on-navy);
+    font-weight: var(--fw-body);
+    margin: 0 0 14px;
+  }
+
+  .agitacao__strong {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 5vw, 32px);
+    line-height: 1.25;
+    color: var(--on-navy-strong) !important;
+    font-weight: var(--fw-medium);
+  }
+
+  @media (max-width: 899px) {
+    .agitacao__list {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

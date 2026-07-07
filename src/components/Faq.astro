@@ -1,0 +1,84 @@
+---
+import { FAQ } from '../config/content';
+---
+
+<section class="section faq" id="duvidas" aria-labelledby="faq-title">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="kicker">{FAQ.kicker}</span>
+      <h2 id="faq-title">{FAQ.title}</h2>
+    </div>
+
+    <div class="faq__box" data-reveal>
+      {FAQ.items.map((item, i) => (
+        <details class="faq__item" open={i === 0}>
+          <summary>
+            <span>{item.q}</span>
+            <span class="faq__plus" aria-hidden="true">+</span>
+          </summary>
+          <p>{item.a}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq__box {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    max-width: 780px;
+  }
+
+  .faq__item {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .faq__item:last-child {
+    border-bottom: none;
+  }
+
+  .faq__item summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 22px 26px;
+    font-family: var(--font-body);
+    font-size: 17px;
+    font-weight: var(--fw-medium);
+    color: var(--ink);
+    min-height: 48px;
+  }
+
+  .faq__item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq__plus {
+    font-size: 24px;
+    color: var(--gold);
+    font-weight: var(--fw-body);
+    transition: transform 0.25s ease;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+
+  .faq__item[open] .faq__plus {
+    transform: rotate(45deg);
+  }
+
+  .faq__item p {
+    padding: 0 26px 24px;
+    margin: 0;
+    font-size: 15.5px;
+    line-height: 1.7;
+    color: var(--text);
+    font-weight: var(--fw-body);
+    max-width: 640px;
+  }
+</style>

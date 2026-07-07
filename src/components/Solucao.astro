@@ -1,0 +1,116 @@
+---
+import { SOLUCAO } from '../config/content';
+---
+
+<section class="section solucao" id="tratamento" aria-labelledby="solucao-title">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="kicker">{SOLUCAO.kicker}</span>
+      <h2 id="solucao-title">{SOLUCAO.title}</h2>
+      <p class="body-text">{SOLUCAO.body}</p>
+      <p class="subtitle">{SOLUCAO.results}</p>
+    </div>
+
+    <div class="solucao__contrast" data-reveal-stagger>
+      <div class="solucao__card solucao__card--estetica" data-reveal>
+        <span class="caption">{SOLUCAO.contrast.estetica.label}</span>
+        <ul>
+          {SOLUCAO.contrast.estetica.items.map((item) => (
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="solucao__card solucao__card--funcional" data-reveal>
+        <span class="caption solucao__caption-gold">{SOLUCAO.contrast.funcional.label}</span>
+        <ul>
+          {SOLUCAO.contrast.funcional.items.map((item) => (
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .solucao {
+    background: var(--navy-50);
+  }
+
+  .solucao .section-head {
+    max-width: 780px;
+  }
+
+  .solucao .subtitle {
+    margin-top: 20px;
+  }
+
+  .solucao__contrast {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 900px;
+  }
+
+  .solucao__card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-xl);
+    padding: 32px;
+  }
+
+  .solucao__card--funcional {
+    background: var(--navy-ink);
+    border-color: var(--navy-ink);
+    box-shadow: var(--shadow-card);
+  }
+
+  .solucao__caption-gold {
+    color: var(--gold);
+  }
+
+  .solucao__card ul {
+    list-style: none;
+    margin: 20px 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .solucao__card li {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    font-size: 15.5px;
+    line-height: 1.55;
+    color: var(--text);
+    font-weight: var(--fw-body);
+  }
+
+  .solucao__card li svg {
+    flex-shrink: 0;
+    margin-top: 3px;
+    color: var(--muted);
+  }
+
+  .solucao__card--funcional li {
+    color: var(--on-navy-link);
+  }
+
+  .solucao__card--funcional li svg {
+    color: var(--gold);
+  }
+
+  @media (max-width: 720px) {
+    .solucao__contrast {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

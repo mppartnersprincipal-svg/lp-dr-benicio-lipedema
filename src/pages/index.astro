@@ -1,0 +1,48 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Problema from '../components/Problema.astro';
+import Agitacao from '../components/Agitacao.astro';
+import Solucao from '../components/Solucao.astro';
+import Autoridade from '../components/Autoridade.astro';
+import Metodo from '../components/Metodo.astro';
+import Checklist from '../components/Checklist.astro';
+import Depoimentos from '../components/Depoimentos.astro';
+import Faq from '../components/Faq.astro';
+import CtaFinal from '../components/CtaFinal.astro';
+import Footer from '../components/Footer.astro';
+import StickyCta from '../components/StickyCta.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+import ConsentBanner from '../components/ConsentBanner.astro';
+import { FLAGS } from '../config/content';
+---
+
+<Base isHome>
+  <main>
+    <Hero />
+    <Problema />
+    <Agitacao />
+    <Solucao />
+    <Autoridade />
+    <Metodo />
+    <Checklist />
+    {FLAGS.testimonials && <Depoimentos />}
+    <Faq />
+    <CtaFinal />
+  </main>
+  <Footer />
+  <StickyCta />
+  {FLAGS.floatingWhatsapp && <WhatsAppFloat />}
+  <ConsentBanner />
+</Base>
+
+<script>
+  import { initTypewriter } from '../scripts/typewriter.js';
+  import { initReveals } from '../scripts/reveal.js';
+  import { initTracking } from '../scripts/tracking.js';
+  import { FLAGS } from '../config/content';
+
+  initTypewriter();
+  initReveals();
+  initTracking({ appendUtmToWhatsApp: FLAGS.appendUtmToWhatsApp });
+</script>

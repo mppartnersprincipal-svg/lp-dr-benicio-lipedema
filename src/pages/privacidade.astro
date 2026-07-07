@@ -1,0 +1,98 @@
+---
+import Base from '../layouts/Base.astro';
+import { DOCTOR, CONTACT, SITE } from '../config/content';
+---
+
+<Base
+  title={`Política de Privacidade | ${DOCTOR.name}`}
+  description={`Política de privacidade da página de ${DOCTOR.name} — como tratamos seus dados de navegação e contato.`}
+>
+  <main class="privacidade">
+    <div class="container section">
+      <a href="/" class="privacidade__back">← Voltar para a página</a>
+      <span class="kicker">LGPD</span>
+      <h1>Política de Privacidade</h1>
+
+      <p>
+        Esta página pertence a {DOCTOR.name} ({DOCTOR.crm}) e destina-se a informar sobre o tratamento de lipedema e
+        facilitar o agendamento de avaliações. Levamos a sua privacidade a sério e tratamos dados pessoais conforme a
+        Lei Geral de Proteção de Dados (LGPD — Lei nº 13.709/2018).
+      </p>
+
+      <h2>Quais dados coletamos</h2>
+      <p>
+        <strong>Dados de navegação:</strong> com o seu consentimento, utilizamos cookies e tecnologias de medição
+        (Google Tag Manager, Google Analytics e pixels de plataformas de anúncios) para entender o desempenho da página
+        e das campanhas que trouxeram você até aqui — incluindo parâmetros de origem (UTM). Se você recusar, essas
+        ferramentas de marketing permanecem desativadas.
+      </p>
+      <p>
+        <strong>Dados de contato:</strong> esta página não possui formulários próprios. Ao clicar em um botão de
+        agendamento, você é direcionada ao WhatsApp do consultório e conversa diretamente conosco. As informações
+        compartilhadas por lá são usadas exclusivamente para o atendimento e agendamento.
+      </p>
+
+      <h2>Com quem compartilhamos</h2>
+      <p>
+        Não vendemos nem compartilhamos seus dados pessoais com terceiros para fins alheios ao atendimento. Os dados de
+        medição são processados pelas plataformas mencionadas acima, conforme as políticas de privacidade delas.
+      </p>
+
+      <h2>Seus direitos</h2>
+      <p>
+        Você pode solicitar acesso, correção ou exclusão dos seus dados, bem como revogar consentimentos, a qualquer
+        momento, pelo WhatsApp {CONTACT.phoneDisplay} ou presencialmente no consultório ({CONTACT.address.street},
+        {CONTACT.address.neighborhood}, {CONTACT.address.city}/{CONTACT.address.uf}).
+      </p>
+
+      <h2>Aviso de caráter educativo</h2>
+      <p>
+        As informações desta página têm caráter educativo e não substituem a consulta médica. O diagnóstico e a
+        indicação de tratamento dependem de avaliação individualizada.
+      </p>
+
+      <p class="privacidade__updated">Última atualização: julho de 2026 · {new URL(SITE.domain).hostname}</p>
+    </div>
+  </main>
+</Base>
+
+<style>
+  .privacidade h1 {
+    font-size: clamp(32px, 7vw, 52px);
+    margin: 12px 0 28px;
+  }
+
+  .privacidade h2 {
+    font-size: clamp(24px, 5vw, 32px);
+    margin: 36px 0 12px;
+  }
+
+  .privacidade p {
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--text);
+    font-weight: var(--fw-body);
+    max-width: 720px;
+    margin: 0 0 16px;
+  }
+
+  .privacidade strong {
+    color: var(--ink);
+    font-weight: var(--fw-medium);
+  }
+
+  .privacidade__back {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-size: 15px;
+    font-weight: var(--fw-medium);
+    margin-bottom: 24px;
+  }
+
+  .privacidade__updated {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 40px;
+  }
+</style>

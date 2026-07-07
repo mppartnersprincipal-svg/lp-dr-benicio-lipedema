@@ -1,0 +1,158 @@
+/* ============================================================
+   DR. BENÍCIO JR — DESIGN TOKENS
+   Fonte: Design System Dr. Benício (Design_System_-_Dr_Benicio.html)
+   Uso: importar 1x no topo do CSS global. Consuma SEMPRE via var(--token).
+   Nenhuma cor/tamanho hardcoded fora deste arquivo.
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   FONTES — SELF-HOST (performance, budget ≤ 3s)
+   Arquivos .woff2 (subset latin) em /public/fonts, copiados do
+   @fontsource via scripts/copy-fonts.mjs.
+------------------------------------------------------------ */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  src: url('/fonts/cormorant-garamond-500.woff2') format('woff2');
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  src: url('/fonts/cormorant-garamond-500-italic.woff2') format('woff2');
+  font-weight: 500; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  src: url('/fonts/cormorant-garamond-600.woff2') format('woff2');
+  font-weight: 600; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Cinzel';
+  src: url('/fonts/cinzel-500.woff2') format('woff2');
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Jost';
+  src: url('/fonts/jost-300.woff2') format('woff2');
+  font-weight: 300; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Jost';
+  src: url('/fonts/jost-500.woff2') format('woff2');
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+
+:root {
+  /* ---------- NAVY (cor principal) ---------- */
+  --navy-ink:  #0C2340;   /* títulos, fundos escuros, texto forte */
+  --navy-800:  #16375F;   /* cor primária de ação / links / botão */
+  --navy-600:  #1E4B8F;   /* links, realces */
+  --navy-100:  #EAF0F7;   /* fundos de ícone/badge claros */
+  --navy-50:   #F4F7FB;   /* fundo de seção alternado */
+
+  /* ---------- CHAMPANHE (acento premium) ---------- */
+  --gold:        #B79A5B; /* acento, selos, CTA sobre navy */
+  --gold-dark:   #9A7F44; /* texto sobre champanhe claro */
+  --gold-100:    #F1E9D6; /* fundo de selo/badge */
+  --gold-border: #E4D6B4; /* borda de selo champanhe */
+  --gold-hover:  #C6A868; /* hover do CTA champanhe */
+
+  /* ---------- NEUTROS & SEMÂNTICAS ---------- */
+  --ink:          #16202E; /* texto principal */
+  --text:         #52607A; /* corpo de texto */
+  --muted:        #8A93A3; /* legendas, apoio */
+  --line:         #E6E9F0; /* bordas/divisórias */
+  --canvas:       #FAF8F4; /* fundo geral (bege quente) */
+  --white:        #FFFFFF;
+  --whatsapp:     #25D366; /* botão WhatsApp */
+  --error:        #C0392B; /* erros de formulário */
+  --field-border: #E0E4EC; /* borda de input */
+
+  /* Texto sobre navy (fundos escuros) */
+  --on-navy-strong: #FFFFFF;
+  --on-navy:        #AEBBD0;
+  --on-navy-link:   #C6D2E4;
+  --on-navy-link-2: #D5DEEC;
+  --on-navy-muted:  #6E7E99;
+
+  /* ---------- TIPOGRAFIA ---------- */
+  --font-display:    'Cormorant Garamond', Georgia, serif;      /* títulos/display */
+  --font-serif-caps: 'Cinzel', serif;                           /* selos/rótulos CAPS */
+  --font-body:       'Jost', system-ui, -apple-system, sans-serif; /* corpo/UI */
+
+  /* Pesos */
+  --fw-body: 300;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+
+  /* ---------- RAIOS ---------- */
+  --radius-sm:  6px;
+  --radius:     8px;
+  --radius-md:  12px;
+  --radius-lg:  14px;
+  --radius-xl:  16px;
+  --radius-pill: 999px;
+
+  /* ---------- SOMBRAS ---------- */
+  --shadow-btn:  0 12px 28px -14px rgba(12, 35, 64, 0.60);
+  --shadow-card: 0 30px 60px -40px rgba(12, 35, 64, 0.40);
+  --shadow-soft: 0 24px 48px -32px rgba(12, 35, 64, 0.28);
+  --shadow-deep: 0 40px 80px -50px rgba(12, 35, 64, 0.90);
+  --focus-ring:  0 0 0 4px rgba(22, 55, 95, 0.08);
+
+  /* ---------- LAYOUT ---------- */
+  --container-max: 1180px;
+  --section-pad-y: 72px;   /* mobile: reduzir p/ ~48px via media query */
+  --section-pad-x: 48px;   /* mobile: ~20-24px */
+  --gradient-hero: linear-gradient(120deg, #0C2340 0%, #16375F 100%);
+
+  /* ---------- TRANSIÇÕES ---------- */
+  --ease: 0.2s ease;
+}
+
+/* ------------------------------------------------------------
+   BASE — aplicação padrão
+------------------------------------------------------------ */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-weight: var(--fw-body);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.7;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--navy-ink);
+  font-weight: var(--fw-medium);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+::selection { background: var(--navy-800); color: #fff; }
+
+a { color: var(--navy-600); text-decoration: none; transition: color var(--ease); }
+a:hover { color: var(--navy-800); }
+
+/* Kicker / selo padrão */
+.kicker {
+  font-family: var(--font-serif-caps);
+  font-size: 12px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: var(--fw-medium);
+}
+
+/* Respeitar preferências de movimento (typewriter/reveals) */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

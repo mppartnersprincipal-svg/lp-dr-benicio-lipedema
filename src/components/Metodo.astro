@@ -1,0 +1,87 @@
+---
+import { METODO } from '../config/content';
+
+const icons: Record<string, string> = {
+  diagnostico:
+    '<path d="M9 3H5a2 2 0 0 0-2 2v4"/><path d="M15 3h4a2 2 0 0 1 2 2v4"/><path d="M9 21H5a2 2 0 0 1-2-2v-4"/><path d="M15 21h4a2 2 0 0 0 2-2v-4"/><circle cx="12" cy="12" r="3"/>',
+  metabolica:
+    '<path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.9 4.9l2.9 2.9"/><path d="M16.2 16.2l2.9 2.9"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.9 19.1l2.9-2.9"/><path d="M16.2 7.8l2.9-2.9"/><circle cx="12" cy="12" r="3.5"/>',
+  emocional:
+    '<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/>',
+};
+---
+
+<section class="section metodo" id="metodo" aria-labelledby="metodo-title">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="kicker">{METODO.kicker}</span>
+      <h2 id="metodo-title">{METODO.title}</h2>
+    </div>
+
+    <div class="metodo__cards" data-reveal-stagger>
+      {METODO.cards.map((card) => (
+        <article class="metodo__card" data-reveal>
+          <span class="metodo__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" set:html={icons[card.icon]} />
+          </span>
+          <h3 class="h4">{card.title}</h3>
+          <p class="body-sm">{card.text}</p>
+        </article>
+      ))}
+    </div>
+
+    <p class="metodo__closing subtitle" data-reveal>{METODO.closing}</p>
+  </div>
+</section>
+
+<style>
+  .metodo__cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .metodo__card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+  }
+
+  .metodo__card:hover {
+    box-shadow: var(--shadow-card);
+    transform: translateY(-4px);
+  }
+
+  .metodo__icon {
+    width: 52px;
+    height: 52px;
+    border-radius: var(--radius-md);
+    background: var(--navy-100);
+    color: var(--navy-800);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 22px;
+  }
+
+  .metodo__card h3 {
+    margin-bottom: 10px;
+  }
+
+  .metodo__card p {
+    margin: 0;
+  }
+
+  .metodo__closing {
+    margin: 40px 0 0;
+    max-width: 640px;
+  }
+
+  @media (max-width: 899px) {
+    .metodo__cards {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,152 @@
+---
+/**
+ * Banner LGPD — grava a escolha em localStorage e atualiza o
+ * Google Consent Mode v2 (default: denied, definido no Base.astro).
+ */
+---
+
+<div class="consent" id="consent-banner" hidden>
+  <p class="consent__text">
+    Usamos cookies para medir o desempenho desta página e melhorar sua experiência.
+    Você pode aceitar ou recusar. <a href="/privacidade/">Política de privacidade</a>
+  </p>
+  <div class="consent__actions">
+    <button type="button" class="consent__btn consent__btn--accept" id="consent-accept">Aceitar</button>
+    <button type="button" class="consent__btn consent__btn--refuse" id="consent-refuse">Recusar</button>
+  </div>
+</div>
+
+<script>
+  const KEY = 'lp_consent_v1';
+  const banner = document.getElementById('consent-banner');
+
+  function stored() {
+    try {
+      return localStorage.getItem(KEY);
+    } catch {
+      return null;
+    }
+  }
+
+  function save(value: string) {
+    try {
+      localStorage.setItem(KEY, value);
+    } catch {}
+  }
+
+  function updateConsent(granted: boolean) {
+    window.dataLayer = window.dataLayer || [];
+    // GTM só processa comandos de consent no formato `arguments` (como o gtag)
+    function gtag(..._args: unknown[]) {
+      // eslint-disable-next-line prefer-rest-params
+      window.dataLayer.push(arguments);
+    }
+    const state = granted ? 'granted' : 'denied';
+    gtag('consent', 'update', {
+      ad_storage: state,
+      analytics_storage: state,
+      ad_user_data: state,
+      ad_personalization: state,
+    });
+    if (granted) window.dataLayer.push({ event: 'consent_granted' });
+  }
+
+  if (banner && !stored()) {
+    banner.hidden = false;
+    document.getElementById('consent-accept')?.addEventListener('click', () => {
+      save('granted');
+      updateConsent(true);
+      banner.hidden = true;
+    });
+    document.getElementById('consent-refuse')?.addEventListener('click', () => {
+      save('denied');
+      banner.hidden = true;
+    });
+  }
+</script>
+
+<style>
+  /* o display:flex abaixo venceria o [hidden] do user-agent */
+  .consent[hidden] {
+    display: none;
+  }
+
+  .consent {
+    position: fixed;
+    left: 16px;
+    right: 16px;
+    bottom: calc(86px + env(safe-area-inset-bottom));
+    z-index: 50;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    padding: 18px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .consent__text {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--text);
+    font-weight: var(--fw-body);
+    flex: 1 1 280px;
+  }
+
+  .consent__text a {
+    text-decoration: underline;
+  }
+
+  .consent__actions {
+    display: flex;
+    gap: 10px;
+    flex: 1 1 auto;
+    justify-content: flex-end;
+  }
+
+  .consent__btn {
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: var(--fw-medium);
+    border-radius: var(--radius);
+    padding: 12px 22px;
+    min-height: 48px;
+    cursor: pointer;
+    transition: background var(--ease), color var(--ease);
+  }
+
+  .consent__btn--accept {
+    background: var(--navy-800);
+    color: var(--white);
+    border: none;
+  }
+
+  .consent__btn--accept:hover {
+    background: var(--navy-ink);
+  }
+
+  .consent__btn--refuse {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--field-border);
+  }
+
+  .consent__btn--refuse:hover {
+    color: var(--navy-800);
+    border-color: var(--navy-800);
+  }
+
+  @media (min-width: 900px) {
+    .consent {
+      left: auto;
+      right: 24px;
+      bottom: 96px;
+    }
+  }
+</style>

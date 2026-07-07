@@ -1,0 +1,155 @@
+---
+import '../styles/global.css';
+import { SITE, DOCTOR, CONTACT } from '../config/content';
+
+interface Props {
+  title?: string;
+  description?: string;
+  /** Página secundária (ex.: /privacidade) não indexa hero image */
+  isHome?: boolean;
+}
+
+const { title = SITE.title, description = SITE.description, isHome = false } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL('/images/og.jpg', Astro.site);
+
+// GTM só é injetado com um container real configurado
+const gtmEnabled = !SITE.gtmId.includes('X');
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': ['Physician', 'MedicalBusiness'],
+  name: DOCTOR.name,
+  description: SITE.description,
+  url: Astro.site?.href,
+  image: new URL('/images/autoridade-800.webp', Astro.site).href,
+  telephone: CONTACT.phoneE164,
+  medicalSpecialty: 'PlasticSurgery',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: CONTACT.address.street,
+    addressLocality: `${CONTACT.address.neighborhood}, ${CONTACT.address.city}`,
+    addressRegion: CONTACT.address.uf,
+    postalCode: CONTACT.address.cep,
+    addressCountry: 'BR',
+  },
+  openingHoursSpecification: [
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Tuesday', 'Thursday'] },
+  ],
+  sameAs: [DOCTOR.instagram],
+};
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="theme-color" content="#0C2340" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={SITE.locale} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Fontes da dobra: preload (as demais chegam via font-display:swap) -->
+    <link rel="preload" href="/fonts/cormorant-garamond-500.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/cormorant-garamond-500-italic.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/jost-300.woff2" as="font" type="font/woff2" crossorigin />
+
+    {isHome && (
+      <link
+        rel="preload"
+        as="image"
+        type="image/avif"
+        imagesrcset="/images/hero-480.avif 480w, /images/hero-800.avif 800w, /images/hero-1200.avif 1200w"
+        imagesizes="(min-width: 900px) 40vw, 92vw"
+        fetchpriority="high"
+      />
+    )}
+
+    <!-- 1) Flag de JS + Consent Mode v2 (default: negado) ANTES do GTM -->
+    <script is:inline>
+      document.documentElement.classList.add('js');
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        analytics_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        wait_for_update: 500,
+      });
+      try {
+        if (localStorage.getItem('lp_consent_v1') === 'granted') {
+          gtag('consent', 'update', {
+            ad_storage: 'granted',
+            analytics_storage: 'granted',
+            ad_user_data: 'granted',
+            ad_personalization: 'granted',
+          });
+        }
+      } catch (e) {}
+    </script>
+
+    <!-- 2) GTM carregado on-idle / primeira interação (não bloqueia a dobra) -->
+    {gtmEnabled && (
+      <script is:inline define:vars={{ gtmId: SITE.gtmId }}>
+        (function () {
+          var loaded = false;
+          function loadGTM() {
+            if (loaded) return;
+            loaded = true;
+            window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://www.googletagmanager.com/gtm.js?id=' + gtmId;
+            document.head.appendChild(s);
+            ['pointerdown', 'scroll', 'keydown', 'touchstart'].forEach(function (ev) {
+              removeEventListener(ev, loadGTM, { passive: true });
+            });
+          }
+          ['pointerdown', 'scroll', 'keydown', 'touchstart'].forEach(function (ev) {
+            addEventListener(ev, loadGTM, { passive: true, once: true });
+          });
+          if ('requestIdleCallback' in window) {
+            requestIdleCallback(loadGTM, { timeout: 3000 });
+          } else {
+            setTimeout(loadGTM, 3000);
+          }
+        })();
+      </script>
+    )}
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body>
+    {gtmEnabled && (
+      <noscript>
+        <iframe
+          src={`https://www.googletagmanager.com/ns.html?id=${SITE.gtmId}`}
+          height="0"
+          width="0"
+          style="display:none;visibility:hidden"
+          title="Google Tag Manager"></iframe>
+      </noscript>
+    )}
+    <slot />
+  </body>
+</html>

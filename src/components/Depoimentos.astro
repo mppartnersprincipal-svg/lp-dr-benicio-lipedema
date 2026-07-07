@@ -1,0 +1,102 @@
+---
+/**
+ * Seção de prova social — renderizada apenas quando FLAGS.testimonials = true.
+ * CFM: publicar somente depoimentos reais com autorização por escrito;
+ * sem fotos de antes/depois.
+ */
+import { DEPOIMENTOS } from '../config/content';
+---
+
+<section class="section depoimentos" id="depoimentos" aria-labelledby="depoimentos-title">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="kicker">{DEPOIMENTOS.kicker}</span>
+      <h2 id="depoimentos-title">{DEPOIMENTOS.title}</h2>
+    </div>
+
+    <div class="depoimentos__grid" data-reveal-stagger>
+      {DEPOIMENTOS.items.map((item) => (
+        <figure class="depoimentos__card" data-reveal>
+          <span class="depoimentos__mark" aria-hidden="true">"</span>
+          <blockquote>{item.quote}</blockquote>
+          <figcaption>
+            <span class="depoimentos__avatar" aria-hidden="true">{item.author.charAt(0)}</span>
+            <span>
+              <span class="depoimentos__author">{item.author}</span>
+              <span class="depoimentos__detail">{item.detail}</span>
+            </span>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .depoimentos__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  .depoimentos__card {
+    margin: 0;
+    background: var(--canvas);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-xl);
+    padding: 40px;
+  }
+
+  .depoimentos__mark {
+    font-family: var(--font-display);
+    font-size: 60px;
+    line-height: 0.5;
+    color: var(--gold);
+    display: block;
+    height: 30px;
+  }
+
+  .depoimentos__card blockquote {
+    margin: 0 0 24px;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 23px;
+    line-height: 1.5;
+    color: var(--navy-800);
+  }
+
+  .depoimentos__card figcaption {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .depoimentos__avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--navy-100);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 20px;
+    color: var(--navy-800);
+    font-weight: var(--fw-semibold);
+    flex-shrink: 0;
+  }
+
+  .depoimentos__author {
+    display: block;
+    font-size: 15px;
+    font-weight: var(--fw-medium);
+    color: var(--ink);
+  }
+
+  .depoimentos__detail {
+    display: block;
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: var(--fw-body);
+  }
+</style>

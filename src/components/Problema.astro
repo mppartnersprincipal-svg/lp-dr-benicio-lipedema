@@ -1,0 +1,71 @@
+---
+import { PROBLEMA } from '../config/content';
+---
+
+<section class="section problema" id="problema" aria-labelledby="problema-title">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="kicker">{PROBLEMA.kicker}</span>
+      <h2 id="problema-title">{PROBLEMA.title}</h2>
+    </div>
+
+    <div class="problema__quotes" data-reveal-stagger>
+      {PROBLEMA.quotes.map((quote) => (
+        <blockquote class="problema__quote" data-reveal>{quote}</blockquote>
+      ))}
+    </div>
+
+    <div class="problema__body" data-reveal>
+      <p class="body-text">
+        {PROBLEMA.body}
+        <strong>{PROBLEMA.bodyStrong}</strong>
+      </p>
+      <p class="body-text">{PROBLEMA.explanation}</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .problema__quotes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+
+  .problema__quote {
+    margin: 0;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--gold);
+    border-radius: var(--radius-lg);
+    padding: 26px 28px;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 22px;
+    line-height: 1.4;
+    color: var(--navy-800);
+  }
+
+  .problema__body {
+    max-width: 720px;
+  }
+
+  .problema__body p {
+    margin: 0 0 18px;
+  }
+
+  .problema__body strong {
+    color: var(--navy-ink);
+    font-weight: var(--fw-medium);
+    display: block;
+    margin-top: 10px;
+    font-size: 19px;
+  }
+
+  @media (max-width: 899px) {
+    .problema__quotes {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

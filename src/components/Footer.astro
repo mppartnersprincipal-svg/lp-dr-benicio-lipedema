@@ -1,0 +1,203 @@
+---
+import { DOCTOR, CONTACT, FOOTER, waLink } from '../config/content';
+
+const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+  `${CONTACT.address.street}, ${CONTACT.address.neighborhood}, ${CONTACT.address.city} - ${CONTACT.address.uf}, ${CONTACT.address.cep}`
+)}`;
+---
+
+<footer class="footer on-navy">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <div class="footer__logo-card">
+          <img src="/images/logo-benicio.webp" alt={DOCTOR.name} width="210" height="70" loading="lazy" decoding="async" />
+        </div>
+        <p class="footer__desc">{FOOTER.description}</p>
+        <div class="footer__social">
+          <a href={DOCTOR.instagram} target="_blank" rel="noopener" aria-label="Instagram do Dr. Benício Júnior">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle></svg>
+          </a>
+          <a href={waLink()} target="_blank" rel="noopener" aria-label="WhatsApp do consultório" data-wa data-source="footer-social">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.16c-.24.68-1.42 1.32-1.96 1.36-.5.05-1.14.24-3.68-.77-3.09-1.22-5.06-4.35-5.22-4.56-.15-.2-1.25-1.66-1.25-3.17 0-1.51.79-2.25 1.07-2.56.28-.31.61-.38.81-.38.2 0 .41 0 .58.01.19.01.44-.07.68.52.24.59.83 2.04.9 2.19.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.17-.31.39-.44.52-.15.15-.3.31-.13.61.17.29.76 1.25 1.63 2.03 1.12 1 2.06 1.31 2.36 1.46.29.15.46.12.63-.07.17-.2.72-.84.91-1.13.19-.29.39-.24.65-.15.27.1 1.7.8 1.99.95.29.15.49.22.56.34.07.12.07.71-.17 1.39z"></path></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <span class="footer__heading">Atendimento</span>
+        <p>{CONTACT.hours}</p>
+        <p>{CONTACT.telemedicine}</p>
+      </div>
+
+      <div class="footer__col">
+        <span class="footer__heading">Contato</span>
+        <p>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          <a href={mapsUrl} target="_blank" rel="noopener">
+            {CONTACT.address.street}<br />
+            {CONTACT.address.neighborhood}, {CONTACT.address.city}/{CONTACT.address.uf} · CEP {CONTACT.address.cep}
+          </a>
+        </p>
+        <p>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"></path></svg>
+          <a href={waLink()} target="_blank" rel="noopener" data-wa data-source="footer-phone">{CONTACT.phoneDisplay}</a>
+        </p>
+      </div>
+    </div>
+
+    <p class="footer__disclaimer">{FOOTER.disclaimer}</p>
+
+    <div class="footer__legal">
+      <span>{FOOTER.copyright}</span>
+      <span class="footer__crm">{DOCTOR.name} · {DOCTOR.crm}</span>
+      <a href="/privacidade/">Política de Privacidade</a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--navy-ink);
+    color: var(--on-navy);
+    padding-top: var(--section-pad-y);
+  }
+
+  .footer__grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1.2fr;
+    gap: 48px;
+  }
+
+  .footer__logo-card {
+    background: var(--white);
+    border-radius: var(--radius-md);
+    padding: 18px 22px;
+    display: inline-block;
+  }
+
+  .footer__logo-card img {
+    width: 210px;
+    height: auto;
+  }
+
+  .footer__desc {
+    font-size: 14px;
+    line-height: 1.75;
+    color: var(--on-navy);
+    font-weight: var(--fw-body);
+    margin: 24px 0 0;
+    max-width: 300px;
+  }
+
+  .footer__social {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  .footer__social a {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    transition: background var(--ease), border-color var(--ease), color var(--ease);
+  }
+
+  .footer__social a:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--navy-ink);
+  }
+
+  .footer__heading {
+    font-family: var(--font-serif-caps);
+    font-size: 10px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: var(--fw-medium);
+    display: block;
+    margin-bottom: 22px;
+  }
+
+  .footer__col p {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    font-size: 15px;
+    line-height: 1.6;
+    font-weight: var(--fw-body);
+    color: var(--on-navy-link);
+    margin: 0 0 16px;
+  }
+
+  .footer__col svg {
+    flex-shrink: 0;
+    margin-top: 4px;
+    color: var(--gold);
+  }
+
+  .footer__col a {
+    color: var(--on-navy-link);
+  }
+
+  .footer__col a:hover {
+    color: var(--white);
+  }
+
+  .footer__disclaimer {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    margin-top: 48px;
+    padding-top: 28px;
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--on-navy); /* AA sobre navy (muted reprova contraste) */
+    font-weight: var(--fw-body);
+    max-width: 760px;
+  }
+
+  .footer__legal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    padding: 24px 0 40px;
+    font-size: 13px;
+    font-weight: var(--fw-body);
+    color: var(--on-navy);
+  }
+
+  .footer__crm {
+    letter-spacing: 0.08em;
+  }
+
+  .footer__legal a {
+    color: var(--on-navy);
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: underline;
+  }
+
+  .footer__legal a:hover {
+    color: var(--white);
+  }
+
+  @media (max-width: 899px) {
+    .footer__grid {
+      grid-template-columns: 1fr;
+      gap: 36px;
+    }
+
+    /* espaço extra p/ CTA sticky no mobile */
+    .footer__legal {
+      padding-bottom: 110px;
+    }
+  }
+</style>
