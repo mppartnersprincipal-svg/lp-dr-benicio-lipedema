@@ -13,7 +13,7 @@ export const SITE = {
   gtmId: 'GTM-XXXXXXX',
   title: 'Tratamento de Lipedema em Goiânia | Dr. Benício de Oliveira Júnior',
   description:
-    'Dor, inchaço e pernas desproporcionais que não respondem a dieta podem ser lipedema. Avaliação especializada com o Dr. Benício Júnior em Goiânia — presencial e telemedicina.',
+    'Dor, inchaço e pernas desproporcionais que não respondem a dieta podem ser lipedema. Avaliação especializada com o Dr. Benício Júnior em Goiânia, presencial e por telemedicina.',
   locale: 'pt_BR',
 };
 
@@ -32,7 +32,7 @@ export const CONTACT = {
   phoneDisplay: '+55 62 99613-4706',
   phoneE164: '+5562996134706',
   address: {
-    street: 'R. 87, 415 — qd F 27 lt 45',
+    street: 'R. 87, 415, qd F 27 lt 45',
     neighborhood: 'Setor Sul',
     city: 'Goiânia',
     uf: 'GO',
@@ -62,7 +62,7 @@ export const HERO = {
   /** H1 — typewriter aplicado por cima do texto já renderizado (LCP-safe) */
   headline: 'Não é "só gordura". E não, a culpa nunca foi sua.',
   subheadline:
-    'Dor ao toque, inchaço no fim do dia, pernas desproporcionais ao resto do corpo e aquela gordura "teimosa" que academia e restrição não resolvem. Se você se reconhece, existe um tratamento — e ele começa com um diagnóstico correto.',
+    'Dor ao toque, inchaço no fim do dia, pernas desproporcionais ao resto do corpo e aquela gordura "teimosa" que academia e restrição não resolvem. Se você se reconhece, existe um tratamento, e ele começa com um diagnóstico correto.',
   cta: 'Quero agendar minha avaliação',
   microcopy:
     'Atendimento com o Dr. Benício Júnior · +30 anos de experiência · Goiânia e telemedicina para todo o Brasil',
@@ -76,18 +76,18 @@ export const PROBLEMA = {
   title: 'Você não está exagerando. E não está sozinha.',
   quotes: ['"É só emagrecer."', '"Faz mais exercício que some."', '"Você precisa se esforçar mais."'],
   body:
-    'E, mesmo fazendo tudo certo — dieta, academia, disciplina — suas pernas continuavam pesadas, doloridas e do mesmo tamanho. O tronco até afinava. As pernas, não.',
+    'E, mesmo fazendo tudo certo, com dieta, academia e disciplina, suas pernas continuavam pesadas, doloridas e do mesmo tamanho. O tronco até afinava. As pernas, não.',
   bodyStrong: 'Isso não é falta de força de vontade. É uma doença.',
   explanation:
-    'O lipedema é uma condição crônica, de origem genética e hormonal, com acúmulo anormal, simétrico e doloroso de gordura — resistente a dieta e exercício por natureza.',
+    'O lipedema é uma condição crônica, de origem genética e hormonal, com acúmulo anormal, simétrico e doloroso de gordura, resistente a dieta e exercício por natureza.',
 };
 
 /* ---------------- 11.3 AGITAÇÃO ---------------- */
 export const AGITACAO = {
   kicker: 'Por que agir agora',
-  title: 'O silêncio custa caro — e o tempo, mais ainda.',
+  title: 'O silêncio custa caro. E o tempo, mais ainda.',
   consequences: [
-    { icon: 'pain', text: 'Dor que limita o dia a dia — trabalhar, caminhar, viver.' },
+    { icon: 'pain', text: 'Dor que limita o dia a dia: trabalhar, caminhar, viver.' },
     { icon: 'swelling', text: 'Inchaço rotineiro, que piora ao longo do dia.' },
     { icon: 'mobility', text: 'Perda progressiva de mobilidade e disposição.' },
     { icon: 'progression', text: 'Risco de evolução para linfedema nos estágios avançados.' },
@@ -102,8 +102,8 @@ export const SOLUCAO = {
   kicker: 'A virada',
   title: 'O que muda quando você é atendida por quem realmente entende de lipedema.',
   body:
-    'Lipedema tem nome, causa e tratamento. A cirurgia não é uma lipoaspiração estética comum — é uma técnica especializada, que preserva o sistema linfático e trata o tecido inflamado.',
-  results: 'Nas mãos certas, o resultado é menos dor, menos peso, mais mobilidade — e a autoconfiança de volta.',
+    'Lipedema tem nome, causa e tratamento. A cirurgia não é uma lipoaspiração estética comum. É uma técnica especializada, que preserva o sistema linfático e trata o tecido inflamado.',
+  results: 'Nas mãos certas, o resultado é menos dor, menos peso, mais mobilidade e a autoconfiança de volta.',
   contrast: {
     estetica: {
       label: 'Lipo estética comum',
@@ -119,10 +119,10 @@ export const SOLUCAO = {
 /* ---------------- 11.5 AUTORIDADE ---------------- */
 export const AUTORIDADE = {
   kicker: 'Quem vai te atender',
-  title: 'Dr. Benício Júnior — cirurgia com propósito.',
+  title: 'Dr. Benício Júnior: cirurgia com propósito.',
   body: [
     'Sou o Dr. Benício de Oliveira Júnior, médico com mais de 30 anos de atuação na área da saúde. Acompanhei milhares de pacientes e entendi que tratar o lipedema exige mais do que uma cirurgia isolada.',
-    'Meu trabalho une técnica, ciência e empatia — com um princípio que não abro mão: educação e transparência. Sem promessas milagrosas. Com verdade.',
+    'Meu trabalho une técnica, ciência e empatia, com um princípio que não abro mão: educação e transparência. Sem promessas milagrosas. Com verdade.',
   ],
   bodyStrong: 'Meu objetivo não é só operar. É devolver leveza, conforto e confiança à sua vida.',
   imageAlt: 'Dr. Benício de Oliveira Júnior em seu consultório em Goiânia',
@@ -131,12 +131,12 @@ export const AUTORIDADE = {
 /* ---------------- 11.6 MÉTODO ---------------- */
 export const METODO = {
   kicker: 'O método',
-  title: 'Um cuidado que enxerga você por inteiro — não só as suas pernas.',
+  title: 'Um cuidado que enxerga você por inteiro, não só as suas pernas.',
   cards: [
     {
       icon: 'diagnostico',
       title: 'Avaliação médica especializada',
-      text: 'Diagnóstico correto do estágio do lipedema e planejamento com técnica que preserva o sistema linfático — a lipoaspiração funcional.',
+      text: 'Diagnóstico correto do estágio do lipedema e planejamento com técnica que preserva o sistema linfático: a lipoaspiração funcional.',
     },
     {
       icon: 'metabolica',
@@ -146,10 +146,10 @@ export const METODO = {
     {
       icon: 'emocional',
       title: 'Estruturação emocional',
-      text: 'Acolhimento para quem carregou anos de julgamento — porque cuidar da mente também é tratar a doença.',
+      text: 'Acolhimento para quem carregou anos de julgamento, porque cuidar da mente também é tratar a doença.',
     },
   ],
-  closing: 'Um plano personalizado, seguro e humano — do primeiro contato ao acompanhamento pós-operatório.',
+  closing: 'Um plano personalizado, seguro e humano, do primeiro contato ao acompanhamento pós-operatório.',
 };
 
 /* ---------------- 11.7 CHECKLIST ---------------- */
@@ -163,7 +163,7 @@ export const CHECKLIST = {
     'Pernas incham e ficam pesadas, principalmente no fim do dia.',
     'Você já emagreceu, mas as pernas continuaram do mesmo tamanho.',
     'Os pés costumam ser poupados, enquanto pernas e coxas acumulam volume.',
-    'Você já ouviu que é "só obesidade" — mas sente que é algo diferente.',
+    'Você já ouviu que é "só obesidade", mas sente que é algo diferente.',
   ],
   closing: 'Se você marcou 3 ou mais, é hora de uma avaliação profissional.',
   cta: 'Quero entender o meu caso',
@@ -177,7 +177,7 @@ export const DEPOIMENTOS = {
       e então ativar FLAGS.testimonials. Não publicar conteúdo fictício. */
   items: [
     {
-      quote: '[SUBSTITUIR — depoimento real com autorização por escrito da paciente]',
+      quote: '[SUBSTITUIR: depoimento real com autorização por escrito da paciente]',
       author: 'Paciente',
       detail: '[idade], [cidade]',
     },
@@ -191,11 +191,11 @@ export const FAQ = {
   items: [
     {
       q: 'Lipedema tem cura?',
-      a: 'O lipedema é uma condição crônica — e ser transparente sobre isso faz parte do nosso trabalho. O objetivo do tratamento é controlar a dor, reduzir o inchaço, melhorar a mobilidade e devolver qualidade de vida. Cada caso é avaliado individualmente.',
+      a: 'O lipedema é uma condição crônica, e ser transparente sobre isso faz parte do nosso trabalho. O objetivo do tratamento é controlar a dor, reduzir o inchaço, melhorar a mobilidade e devolver qualidade de vida. Cada caso é avaliado individualmente.',
     },
     {
       q: 'A cirurgia é a mesma coisa que lipoaspiração comum?',
-      a: 'Não. A cirurgia para lipedema usa técnica específica, que preserva o sistema linfático e remove o tecido doente e inflamado. É um procedimento funcional, com objetivo de tratar a doença — não apenas estético.',
+      a: 'Não. A cirurgia para lipedema usa técnica específica, que preserva o sistema linfático e remove o tecido doente e inflamado. É um procedimento funcional, com objetivo de tratar a doença, não apenas estético.',
     },
     {
       q: 'Moro fora de Goiânia, consigo ser atendida?',
@@ -203,11 +203,11 @@ export const FAQ = {
     },
     {
       q: 'Como funciona a primeira consulta?',
-      a: 'É uma avaliação completa e honesta: histórico, exame clínico, definição do estágio do lipedema e a indicação do melhor caminho para o seu caso — cirúrgico ou não.',
+      a: 'É uma avaliação completa e honesta: histórico, exame clínico, definição do estágio do lipedema e a indicação do melhor caminho para o seu caso, cirúrgico ou não.',
     },
     {
       q: 'E se meu caso não for cirúrgico?',
-      a: 'Nem todo lipedema exige cirurgia. Se o seu caso tiver indicação conservadora, é isso que você vai ouvir — com um plano real de cuidado. Orientação verdadeira faz parte do método.',
+      a: 'Nem todo lipedema exige cirurgia. Se o seu caso tiver indicação conservadora, é isso que você vai ouvir, com um plano real de cuidado. Orientação verdadeira faz parte do método.',
     },
   ],
 };
@@ -221,7 +221,7 @@ export const CTA_FINAL = {
     'O consultório atende presencialmente às terças e quintas-feiras, com vagas de avaliação limitadas por semana. Pacientes de fora de Goiânia podem começar por telemedicina.',
   cta: 'Agendar minha avaliação agora',
   microcopy:
-    'Atendimento humanizado · Diagnóstico honesto · Sem promessas milagrosas — só o cuidado que você merece.',
+    'Atendimento humanizado · Diagnóstico honesto · Sem promessas milagrosas, só o cuidado que você merece.',
 };
 
 /* ---------------- 11.11 RODAPÉ ---------------- */
