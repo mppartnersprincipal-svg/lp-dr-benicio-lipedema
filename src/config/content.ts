@@ -21,8 +21,8 @@ export const DOCTOR = {
   name: 'Dr. Benício de Oliveira Júnior',
   shortName: 'Dr. Benício Júnior',
   specialty: 'Cirurgia Plástica',
-  /** TODO antes do lançamento: CRM-GO e RQE reais */
-  crm: 'CRM-GO XXXXX · RQE XXXXX',
+  /** Registro confirmado pelo cliente em 2026-07-09 */
+  crm: 'CRM-GO 4893 · RQE 471',
   instagram: 'https://www.instagram.com/drbeniciojr/',
 };
 

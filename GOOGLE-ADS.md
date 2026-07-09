@@ -137,8 +137,7 @@ atualizar a política de privacidade** antes.
 ### 🔴 Bloqueadores — resolver ANTES de ativar a campanha
 
 1. ~~`SITE.gtmId`~~ ✅ `GTM-W349GXQ2` configurado.
-2. **`DOCTOR.crm`** em `content.ts` → CRM-GO e RQE reais. Placeholder "XXXXX" visível na
-   página viola o CFM e arrisca reprovação por *Misrepresentation* (dado profissional não verificável).
+2. ~~`DOCTOR.crm`~~ ✅ `CRM-GO 4893 · RQE 471` (confirmado pelo cliente em 2026-07-09).
 3. ~~Domínio real~~ ✅ `https://www.drbeniciolipedema.com.br` no ar (HTTPS + redirects OK),
    `SITE.domain` e `robots.txt` atualizados.
 4. **`CONTACT.hours`** → confirmar horário com o consultório.

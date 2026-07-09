@@ -31,7 +31,7 @@ Flags disponíveis (`FLAGS`):
 
 1. ~~**`SITE.domain`**~~ ✅ configurado (`https://www.drbeniciolipedema.com.br`, com `robots.txt` atualizado).
 2. ~~**`SITE.gtmId`**~~ ✅ configurado (`GTM-W349GXQ2`). O snippet só é injetado com ID em formato válido; o placeholder `GTM-XXXXXXX` desliga o GTM.
-3. **`DOCTOR.crm`** → CRM-GO e RQE reais (obrigatório CFM).
+3. ~~**`DOCTOR.crm`**~~ ✅ configurado (`CRM-GO 4893 · RQE 471`, confirmado pelo cliente em 2026-07-09).
 4. **`CONTACT.hours`** → confirmar horário (registro anterior: ter/qui 14h–17h).
 5. **Depoimentos** → substituir os placeholders em `DEPOIMENTOS.items` por relatos reais autorizados e ativar `FLAGS.testimonials`.
 
