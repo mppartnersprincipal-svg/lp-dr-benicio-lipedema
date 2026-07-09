@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://drbenicio-lipedema.pages.dev/sitemap-index.xml
+Sitemap: https://www.drbeniciolipedema.com.br/sitemap-index.xml

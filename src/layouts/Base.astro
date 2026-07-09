@@ -13,8 +13,10 @@ const { title = SITE.title, description = SITE.description, isHome = false } = A
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const ogImage = new URL('/images/og.jpg', Astro.site);
 
-// GTM só é injetado com um container real configurado
-const gtmEnabled = !SITE.gtmId.includes('X');
+// GTM só é injetado com um container real configurado.
+// IDs reais podem conter "X" (ex.: GTM-W349GXQ2) — o que invalida é
+// formato errado ou o placeholder todo em X.
+const gtmEnabled = /^GTM-[A-Z0-9]{6,10}$/.test(SITE.gtmId) && !/^GTM-X+$/.test(SITE.gtmId);
 
 const jsonLd = {
   '@context': 'https://schema.org',

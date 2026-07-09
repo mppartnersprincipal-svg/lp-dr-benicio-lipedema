@@ -6,11 +6,11 @@
    ============================================================ */
 
 export const SITE = {
-  /** TODO antes do lançamento: domínio real (canonical, sitemap, OG, JSON-LD) */
-  domain: 'https://drbenicio-lipedema.pages.dev',
-  /** TODO antes do lançamento: ID real do container GTM.
-      Enquanto contiver "X" o GTM NÃO é injetado. */
-  gtmId: 'GTM-XXXXXXX',
+  /** Domínio de produção (www é o canônico — a raiz redireciona 308 p/ www) */
+  domain: 'https://www.drbeniciolipedema.com.br',
+  /** Container GTM real (ativado em 2026-07-09). Se voltar ao placeholder
+      GTM-XXXXXXX, o snippet deixa de ser injetado. */
+  gtmId: 'GTM-W349GXQ2',
   title: 'Tratamento de Lipedema em Goiânia | Dr. Benício de Oliveira Júnior',
   description:
     'Dor, inchaço e pernas desproporcionais que não respondem a dieta podem ser lipedema. Avaliação especializada com o Dr. Benício Júnior em Goiânia, presencial e por telemedicina.',

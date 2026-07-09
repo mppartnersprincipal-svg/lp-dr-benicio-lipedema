@@ -29,8 +29,8 @@ Flags disponíveis (`FLAGS`):
 
 ## ⚠️ Checklist pré-lançamento (placeholders a substituir)
 
-1. **`SITE.domain`** em `content.ts` → domínio real (alimenta canonical, sitemap, OG e JSON-LD). Atualizar também o `Sitemap:` em `public/robots.txt`.
-2. **`SITE.gtmId`** → ID real do container GTM. Enquanto contiver "X", o GTM **não é injetado** (proteção contra container inválido).
+1. ~~**`SITE.domain`**~~ ✅ configurado (`https://www.drbeniciolipedema.com.br`, com `robots.txt` atualizado).
+2. ~~**`SITE.gtmId`**~~ ✅ configurado (`GTM-W349GXQ2`). O snippet só é injetado com ID em formato válido; o placeholder `GTM-XXXXXXX` desliga o GTM.
 3. **`DOCTOR.crm`** → CRM-GO e RQE reais (obrigatório CFM).
 4. **`CONTACT.hours`** → confirmar horário (registro anterior: ter/qui 14h–17h).
 5. **Depoimentos** → substituir os placeholders em `DEPOIMENTOS.items` por relatos reais autorizados e ativar `FLAGS.testimonials`.
@@ -47,15 +47,14 @@ O código já: injeta o GTM on-idle (não bloqueia a dobra), define **Consent Mo
 | `utm_captured` | Chegada com `utm_*`/`gclid`/`fbclid` | os parâmetros capturados |
 | `consent_granted` | Aceite no banner LGPD | — |
 
-Montar **no painel do GTM**:
+A configuração do painel (tags, gatilhos, variáveis e consentimento) está **pronta para importar**
+em [`gtm/container-import.json`](gtm/container-import.json) — passo a passo completo (GTM → GA4 →
+conversão do Google Ads → estrutura de campanha → políticas) em [`GOOGLE-ADS.md`](GOOGLE-ADS.md).
 
-1. **Gatilho 1 (link):** Clique em Link · "Click URL contém `wa.me`".
-2. **Gatilho 2 (custom event):** `whatsapp_click`.
-3. **Conversion Linker** (tag, All Pages).
-4. **GA4:** tag de configuração + evento `whatsapp_click` como conversão.
-5. **Google Ads:** tag de conversão disparada pelos gatilhos 1–2.
-6. **Meta Pixel:** tag Custom HTML com evento `Lead`/`Contact` no gatilho `whatsapp_click`.
-7. Em todas as tags de marketing, manter **Consent Settings** exigindo `ad_storage`/`analytics_storage` (o site já envia os sinais de consentimento).
+> ⚠️ Usar **apenas** o gatilho de evento customizado `whatsapp_click` nas tags de conversão.
+> Adicionar também um gatilho de "clique em link `wa.me`" duplicaria a contagem (o mesmo clique
+> gera os dois eventos). Meta Pixel (se/quando usar): tag Custom HTML com evento `Lead` no
+> gatilho `whatsapp_click`, exigindo consentimento `ad_storage`.
 
 ## Deploy (Vercel)
 
