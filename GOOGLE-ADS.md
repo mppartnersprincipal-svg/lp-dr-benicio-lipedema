@@ -74,13 +74,17 @@ gatilhos, variáveis e configurações de consentimento.
 
 ### Sobre o consentimento e a contagem de conversões
 
-O site opera em **modo básico** de consentimento: quem **recusa** (ou clica no CTA antes de
-responder ao banner) **não gera conversão registrada** — é o comportamento prometido na
-política de privacidade ("se você recusar, essas ferramentas permanecem desativadas").
-Espere, portanto, alguma subcontagem em relação aos cliques reais no WhatsApp.
-Se no futuro a subcontagem prejudicar o Smart Bidding, é possível migrar para o
-*advanced consent mode* (pings sem cookies + modelagem de conversões), **mas isso exige
-atualizar a política de privacidade** antes.
+**Decisão de 2026-07-09:** o container em produção (montado pelo assistente do Google Ads)
+opera em **advanced consent mode** — as tags do Google disparam sempre, mas respeitam o
+Consent Mode: quem recusa o banner não recebe cookies nem é identificado; o Google recebe
+apenas pings agregados/sem cookies, que alimentam a **modelagem de conversões** do Smart
+Bidding. A política de privacidade (`/privacidade`) foi atualizada para descrever exatamente
+esse comportamento.
+
+> Nota: as tags do arquivo `gtm/container-import.json` trazem *additional consent checks*
+> (modo básico — tag só dispara com consentimento). Se algum item dele for importado no
+> container em produção, **remova essa exigência na tag importada** para manter o
+> comportamento uniforme de advanced consent mode.
 
 ---
 
