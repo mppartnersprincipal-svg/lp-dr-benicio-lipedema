@@ -33,8 +33,9 @@ Flags disponíveis (`FLAGS`):
 2. **`SITE.gtmId`** → ID real do container GTM. Enquanto contiver "X", o GTM **não é injetado** (proteção contra container inválido).
 3. **`DOCTOR.crm`** → CRM-GO e RQE reais (obrigatório CFM).
 4. **`CONTACT.hours`** → confirmar horário (registro anterior: ter/qui 14h–17h).
-5. **Stats "+30 anos"** → confirmar com o Dr. Benício (o design system menciona "15+ anos de experiência cirúrgica"; a copy usa "+30 anos de atuação na área da saúde"). Ajustar `HERO.microcopy` e `AUTORIDADE.body` se necessário.
-6. **Depoimentos** → substituir os placeholders em `DEPOIMENTOS.items` por relatos reais autorizados e ativar `FLAGS.testimonials`.
+5. **Depoimentos** → substituir os placeholders em `DEPOIMENTOS.items` por relatos reais autorizados e ativar `FLAGS.testimonials`.
+
+> Confirmado com o cliente (2026-07-08): "+30 anos de atuação" é o número correto e as "vagas limitadas por semana" são reais. A contagem "milhares de pacientes" foi removida por não ser comprovável (exigência CFM).
 
 ## Rastreamento (GTM)
 

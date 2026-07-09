@@ -58,12 +58,13 @@ export const waLink = () =>
 
 /* ---------------- 11.1 HERO ---------------- */
 export const HERO = {
-  kicker: 'Cirurgia do lipedema · Goiânia',
+  kicker: 'Tratamento do lipedema · Goiânia',
   /** H1 — typewriter aplicado por cima do texto já renderizado (LCP-safe) */
   headline: 'Não é "só gordura". E não, a culpa nunca foi sua.',
   subheadline:
-    'Dor ao toque, inchaço no fim do dia, pernas desproporcionais ao resto do corpo e aquela gordura "teimosa" que academia e restrição não resolvem. Se você se reconhece, existe um tratamento, e ele começa com um diagnóstico correto.',
+    'Dor ao toque, inchaço no fim do dia, pernas desproporcionais ao corpo e aquela gordura "teimosa" que academia e restrição não resolvem. Se você se reconhece, existe um tratamento, e ele começa com um diagnóstico correto.',
   cta: 'Quero agendar minha avaliação',
+  ctaReassurance: 'Você conversa direto com a equipe, sem compromisso.',
   microcopy:
     'Atendimento com o Dr. Benício Júnior · +30 anos de experiência · Goiânia e telemedicina para todo o Brasil',
   imageAlt:
@@ -100,7 +101,7 @@ export const AGITACAO = {
 /* ---------------- 11.4 SOLUÇÃO ---------------- */
 export const SOLUCAO = {
   kicker: 'A virada',
-  title: 'O que muda quando você é atendida por quem realmente entende de lipedema.',
+  title: 'O que muda quando o seu caso é levado a sério e tratado com técnica específica.',
   body:
     'Lipedema tem nome, causa e tratamento. A cirurgia não é uma lipoaspiração estética comum. É uma técnica especializada, que preserva o sistema linfático e trata o tecido inflamado.',
   results: 'Nas mãos certas, o resultado é menos dor, menos peso, mais mobilidade e a autoconfiança de volta.',
@@ -121,7 +122,7 @@ export const AUTORIDADE = {
   kicker: 'Quem vai te atender',
   title: 'Dr. Benício Júnior: cirurgia com propósito.',
   body: [
-    'Sou o Dr. Benício de Oliveira Júnior, médico com mais de 30 anos de atuação na área da saúde. Acompanhei milhares de pacientes e entendi que tratar o lipedema exige mais do que uma cirurgia isolada.',
+    'Sou o Dr. Benício de Oliveira Júnior, médico com mais de 30 anos de atuação na área da saúde. Ao longo desses anos, acompanhei muitos pacientes e entendi que tratar o lipedema exige mais do que uma cirurgia isolada.',
     'Meu trabalho une técnica, ciência e empatia, com um princípio que não abro mão: educação e transparência. Sem promessas milagrosas. Com verdade.',
   ],
   bodyStrong: 'Meu objetivo não é só operar. É devolver leveza, conforto e confiança à sua vida.',

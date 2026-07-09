@@ -12,6 +12,7 @@ import WhatsAppButton from './ui/WhatsAppButton.astro';
       <div class="hero__cta">
         <WhatsAppButton source="hero" label={HERO.cta} variant="gold" large withIcon={false} />
       </div>
+      <p class="hero__reassurance">{HERO.ctaReassurance}</p>
       <p class="hero__micro">{HERO.microcopy}</p>
     </div>
 
@@ -83,6 +84,14 @@ import WhatsAppButton from './ui/WhatsAppButton.astro';
 
   .hero__cta {
     margin-top: 34px;
+  }
+
+  .hero__reassurance {
+    font-size: 13.5px;
+    color: var(--on-navy);
+    font-weight: var(--fw-medium);
+    margin: 12px 0 0;
+    line-height: 1.5;
   }
 
   .hero__micro {
